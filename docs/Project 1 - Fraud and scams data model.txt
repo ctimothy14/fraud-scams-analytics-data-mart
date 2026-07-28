@@ -1,0 +1,102 @@
+Project 1 - Fraud and scams data model
+
+The Fraud Operations team needs a trusted reporting model to monitor fraud and scam cases, 
+measure financial loss, track detection effectiveness, and understand operational performance.
+
+Currently, fraud data is spread across transactions, alerts, cases, customers, accounts, 
+and rule outcomes, making it difficult to consistently answer questions about losses, 
+false positives, case resolution times, and fraud trends.
+
+The purpose of this data mart is to provide a clean, business-ready model 
+that supports Power BI reporting on fraud cases, financial impact, detection outcomes, 
+and operational performance.
+
+Tables which I will be using:
+1. fct_scam_cases
+2. dim_customer
+3. dim_account
+4. dim_product
+5. dim_channel
+6. dim_scam_type
+7. dim_rule
+8. dim_date
+
+raw_scam_cases
+raw_customers
+raw_accounts
+raw_products
+raw_channels
+raw_scam_types
+raw_rules
+
+stg_customers
+stg_accounts
+stg_products
+stg_channels
+stg_scam_types
+stg_rules
+stg_scam_cases
+
+
+
+
+Q1 and Q2:
+Fact Table - Fact_Transaction
+The Grain (What 1 row represents) - One row per transaction attempt.
+Why I need it - To calculate total spend, fraud losses, and false-positive rates on rules.
+
+Fact Table - Fact_Case
+The Grain (What 1 row represents) - One row per fraud/scam investigation case.
+Why I need it - 
+To calculate operational metrics like case volume, resolution times, and analyst workloads.
+
+
+q3:
+Keep your financial measures in Fact_Transaction (e.g., Transaction_Amount, Is_Fraud_Loss_Amount).
+Add operational measures to Fact_Case:
+Case_Resolution_Time_Days (Date Closed minus Date Opened).
+Is_False_Positive (A 1 or 0 flag to count cases where the customer was innocent).
+Alert_Count (How many alerts rolled up into this one case).
+
+Q4:
+Dimension Table - Dim_Customer
+What Data It Holds - Customer ID, Age Group, Signup Date, Risk Tier.
+Why I need it - Shared dimension. Connects transactions to cases and allows you to see whether high-risk customer segments are being targeted by scammers.
+
+Dimension Table - Dim_Account
+What Data It Holds - Account ID, Account Type, Status.
+Why I need it - Shared dimension. Helps track which account types are most vulnerable and measure the operational impact of freezing accounts.
+
+Dimension Table - Dim_Date
+What Data It Holds - Calendar Date, Month, Quarter, Year, Day of Week.
+Why I need it - Shared dimension. Needed for Power BI time intelligence, tracking transaction trends over time, and measuring case resolution speed using opened and closed dates.
+
+Dimension Table - Dim_Tran_Type
+What Data It Holds - Transaction Type, such as Wire, ACH, ATM, or Card Purchase.
+Why I need it - Transaction-only dimension. Helps identify which payment methods scammers prefer using to move or drain funds.
+
+Dimension Table - Dim_Channel
+What Data It Holds - Channel Name, such as Mobile App, Desktop Web, In-Branch, or Call Center.
+Why I need it - Transaction-only dimension. Helps identify which transaction channels fraud is occurring through.
+
+Dimension Table - Dim_Case_Status
+What Data It Holds - Case Status, such as Open, Under Investigation, or Resolved.
+Why I need it - Case-only dimension. Helps measure the fraud operations pipeline, backlog, and how many cases are still open.
+
+Dimension Table - Dim_Scam_Type
+What Data It Holds - Scam Category, such as Account Takeover, Romance Scam, or Investment Scam.
+Why I need it - Case-only dimension. Helps understand fraud and scam trends because different scam types require different investigation approaches, controls, and customer education.
+
+Dimension Table - Dim_Analyst
+What Data It Holds - Analyst ID, Operations Team Name, Region.
+Why I need it - Case-only dimension. Helps measure operational performance by tracking case distribution, analyst workload, and average resolution time by team or investigator.
+
+
+Q5:
+To track the lifecycle of a case. In Fact_Case
+Case_Opened_Date (When did the team start investigating?)
+Case_Closed_Date (When was it resolved?)
+
+Q6:
+Double counting fraud/scam cases
+Incorrectly counting total fraud/scam losses
