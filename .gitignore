@@ -1,0 +1,33 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# dbt generated folders
+target/
+logs/
+dbt_packages/
+
+# Credentials and environment variables
+.env
+.env.*
+!.env.example
+profiles.yml
+*.pem
+*.key
+
+# VS Code and IDE settings
+.vscode/
+.idea/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Microsoft Office temporary files
+~$*.xlsx
+~$*.docx
+~$*.pptx
