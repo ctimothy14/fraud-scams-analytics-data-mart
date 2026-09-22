@@ -1,0 +1,8 @@
+﻿channel_cd,channel_name,channel_group,channel_type
+MOB,Mobile App,Digital,Online
+IB,Internet Banking,Digital,Online
+BRN,Branch,Physical,Offline
+CC,Contact Centre,Assisted,Internal
+CARD,Card,Digital,Online
+ATM,ATM,Physical,Offline
+MOB,mobile,,online

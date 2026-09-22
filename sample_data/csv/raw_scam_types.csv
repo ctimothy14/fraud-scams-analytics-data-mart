@@ -1,0 +1,9 @@
+﻿scam_type_cd,scam_type_name,scam_category,scam_description,active_flag
+INV,Investment Scam,Investment,Customer deceived into fraudulent investment.,Y
+ROM,Romance Scam,Social Engineering,Customer deceived through relationship manipulation.,Y
+REM,Remote Access Scam,Impersonation,Customer convinced to give remote access.,Y
+ATO,Account Takeover,Account Compromise,Unauthorised third party gains account access.,Y
+PHISH,Phishing Scam,Social Engineering,Credentials stolen through phishing.,Y
+INVCE,Invoice Scam,Business Email Compromise,Customer pays fraudulent invoice.,Y
+UNK,Unknown,Unknown,Pending classification.,Y
+PHISH,Fishing Scam,Socail Engineering,Misspelled duplicate.,Y

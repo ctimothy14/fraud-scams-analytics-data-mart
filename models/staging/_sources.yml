@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: raw
+    database: FRAUD_SCAM_ANALYTICS
+    schema: RAW
+
+    tables:
+      - name: raw_customers
+      - name: raw_accounts
+      - name: raw_products
+      - name: raw_channels
+      - name: raw_scam_types
+      - name: raw_rules
+      - name: raw_scam_cases

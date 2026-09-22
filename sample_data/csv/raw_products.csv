@@ -1,0 +1,9 @@
+﻿prod_cd,product_name,product_category,product_status,effective_start_dt,effective_end_dt
+PROD_TXN,Everyday Transaction Account,Deposits,Active,2010-01-01 00:00,
+PROD_SAV,Online Saver,Deposits,Active,2012-06-01 00:00,
+PROD_CC,Rewards Credit Card,Cards,Active,2015-03-15 00:00,
+PROD_HL,Home Loan Variable,Lending,Active,2008-07-01 00:00,
+PROD_TD,Term Deposit,Deposits,Inactive,2011-01-01 00:00,2025-12-31 00:00
+PROD_BIZ,Business Transaction Account,Business Banking,Active,2017-05-01 00:00,
+PROD_INS,Personal Insurance,Insurance,Active,2020-01-01 00:00,
+PROD_SAV,Online Saver Account,Deposit,active,2012-06-01 00:00,
