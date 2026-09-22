@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_channels
+    description: >
+      Cleaned and standardised channel reference data.
+      Grain is one row per standardised channel_code.
+
+    columns:
+      - name: channel_code
+        description: Standardised natural key identifying the channel.
+        data_tests:
+          - not_null
+          - unique
+
+
+  - name: stg_scam_types
+    description: >
+      Cleaned and standardised scam type reference data.
+      Grain is one row per standardised scam_type_code.
+
+    columns:
+      - name: scam_type_code
+        description: Standardised natural key identifying the scam type.
+        data_tests:
+          - not_null
+          - unique

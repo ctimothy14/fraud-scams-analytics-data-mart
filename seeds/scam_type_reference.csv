@@ -1,0 +1,8 @@
+scam_type_code,scam_type_name,scam_category
+INV,Investment Scam,Investment
+ROM,Romance Scam,Social Engineering
+REM,Remote Access Scam,Impersonation
+ATO,Account Takeover,Account Compromise
+PHISH,Phishing Scam,Social Engineering
+INVCE,Invoice Scam,Business Email Compromise
+UNK,Unknown,Unknown
