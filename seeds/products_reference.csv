@@ -1,0 +1,8 @@
+product_code,product_name,product_category,product_status
+PROD_TXN,Everyday Transaction Account,Deposits,Active
+PROD_CC,Rewards Credit Card,Cards,Active
+PROD_HL,Home Loan Variable,Lending,Active
+PROD_TD,Term Deposit,Deposits,Inactive
+PROD_BIZ,Business Transaction Account,Business Banking,Active
+PROD_INS,Personal Insurance,Insurance,Active
+PROD_SAV,Online Saver Account,Deposits,Active

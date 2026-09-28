@@ -25,3 +25,15 @@ models:
         data_tests:
           - not_null
           - unique
+
+  - name: stg_products
+    description: >
+      Cleaned and standardised product reference data.
+      Grain is one row per standardised product_code.
+
+    columns:
+      - name: product_code
+        description: Standardised natural key identifying the product.
+        data_tests:
+          - not_null
+          - unique
