@@ -37,3 +37,15 @@ models:
         data_tests:
           - not_null
           - unique
+
+  - name: stg_rules
+    description: >
+      Cleaned and standardised rule reference data.
+      Grain is One row per latest known rule_id.
+
+    columns:
+      - name: rule_id
+        description: Standardised natural key identifying the rule.
+        data_tests:
+          - not_null
+          - unique
