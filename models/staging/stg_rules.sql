@@ -5,11 +5,11 @@ with source as (
 
 standardised as (
     select 
-        upper(trim(rule_id)) as rule_id,
-        initcap(trim(rule_name)) as rule_name,
+        nullif(upper(trim(rule_id)), '') as rule_id,
+        nullif(trim(rule_name), '') as rule_name,
         initcap(trim(rule_category)) as rule_category,
-        initcap(trim(rule_description)) as rule_description,
-        upper(trim(rule_version)) as rule_version,
+        nullif(trim(rule_description), '') as rule_description,
+        nullif(upper(trim(rule_version)), '') as rule_version,
 
         -- standardized boolean flag
         case 

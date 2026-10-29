@@ -49,3 +49,15 @@ models:
         data_tests:
           - not_null
           - unique
+
+  - name: stg_customers
+    description: >
+      Cleaned and standardised customer data.
+      Grain is one row per latest known customer_id.
+
+    columns:
+      - name: customer_id
+        description: Standardised natural key identifying the customer.
+        data_tests:
+          - not_null
+          - unique
