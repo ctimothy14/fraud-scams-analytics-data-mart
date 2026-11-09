@@ -61,3 +61,15 @@ models:
         data_tests:
           - not_null
           - unique
+
+  - name: stg_scam_cases
+    description: >
+      Cleaned and standardised fraud/scam investigation case data.
+      Grain is one row per latest known case_id.
+
+    columns:
+      - name: case_id
+        description: Standardised natural key identifying the fraud/scam investigation case.
+        data_tests:
+          - not_null
+          - unique
