@@ -19,10 +19,13 @@ models:
   fraud_scams_analytics:
     staging:
       +materialized: view
+      +schema: SILVER
 
     marts:
       dimensions:
         +materialized: table
+        +schema: GOLD
 
       facts:
         +materialized: table
+        +schema: GOLD

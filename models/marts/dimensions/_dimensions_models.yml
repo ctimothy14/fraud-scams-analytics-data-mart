@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: dim_channel
+    description: >
+      Gold channel dimension containing one row per standardised channel,
+      plus an Unknown member for missing or unmatched channel references.
+
+    columns:
+      - name: channel_key
+        description: >
+          Warehouse surrogate key identifying each channel dimension member.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: channel_code
+        description: >
+          Natural business key identifying the channel.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: channel_name
+        description: Human-readable channel name.
+
+      - name: channel_group
+        description: High-level grouping of the channel.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - Digital
+                  - Physical
+                  - Assisted
+                  - Unknown
+
+      - name: channel_type
+        description: Descriptive classification of the channel.
