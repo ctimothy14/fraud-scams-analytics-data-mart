@@ -142,3 +142,62 @@ models:
 
       - name: effective_end_date
         description: Date the product ceased being effective.
+
+  - name: dim_customers
+    description: >
+      Gold customer dimension containing one row per current standardised
+      customer_id, plus an Unknown member for missing or unmatched customer references.
+      Provides customer context for analysing fraud/scam cases, losses,
+      customer risk and customer segments.
+
+    columns:
+      - name: customer_key
+        description: >
+          Warehouse surrogate key identifying each customer dimension member.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: >
+          Natural business key identifying the customer.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_type
+        description: >
+          Business classification of the customer.
+
+      - name: date_of_birth
+        description: >
+          Customer date of birth. Invalid source dates are retained as NULL
+          rather than replaced with an artificial date.
+
+      - name: state
+        description: >
+          Standardised state or territory associated with the customer.
+
+      - name: postcode
+        description: >
+          Customer postcode used for geographic analysis.
+
+      - name: customer_since_date
+        description: >
+          Date the customer relationship commenced.
+
+      - name: risk_rating
+        description: >
+          Current customer risk classification used for fraud and risk analysis.
+
+      - name: customer_segment
+        description: >
+          Business-defined customer segment used for reporting and analysis.
+
+      - name: record_created_at
+        description: >
+          Timestamp the customer record was originally created in the source data.
+
+      - name: record_updated_at
+        description: >
+          Timestamp of the latest known update to the customer record.
