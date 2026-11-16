@@ -37,3 +37,75 @@ models:
 
       - name: channel_type
         description: Descriptive classification of the channel.
+
+  - name: dim_scam_types
+    description: >
+      Gold scam type dimension containing one row per standardised scam type,
+      plus an Unknown member.
+
+    columns:
+      - name: scam_type_key
+        description: Warehouse surrogate key for the scam type.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: scam_type_code
+        description: Natural business key identifying the scam type.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: scam_type_name
+        description: Human-readable scam type name.
+
+      - name: scam_category
+        description: High-level scam category.
+
+      - name: scam_description
+        description: Description of the scam type.
+
+      - name: active_flag
+        description: Indicates whether the scam type is active.
+
+  - name: dim_rules
+    description: >
+      Gold fraud/scam rule dimension containing one row per current rule,
+      plus Unknown Rule and No Rule Triggered special members.
+
+    columns:
+      - name: rule_key
+        description: Warehouse surrogate key for the rule.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: rule_id
+        description: Natural business key identifying the rule.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: rule_name
+        description: Human-readable rule name.
+
+      - name: rule_category
+        description: Business category of the rule.
+
+      - name: rule_description
+        description: Description of the rule.
+
+      - name: rule_version
+        description: Current rule version.
+
+      - name: is_active
+        description: Indicates whether the rule is currently active.
+
+      - name: rule_start_date
+        description: Date the rule became effective.
+
+      - name: rule_end_date
+        description: Date the rule ceased being effective.
+
+      - name: rule_last_updated
+        description: Timestamp of the latest known rule update.

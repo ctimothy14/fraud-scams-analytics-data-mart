@@ -7,31 +7,32 @@ with source as (
 
 dimension_records as (
     select 
-        md5(scam_type_code) as scam_type_key,
+        case
+            when scam_type_code = 'UNK'
+                then cast('-1' as varchar)
+            else md5(scam_type_code)
+        end as scam_type_key,
         scam_type_code, 
         scam_type_name,
         scam_category,
         scam_description,
-        active_flag,
+        case
+            when scam_type_code = 'UNK'
+                then false
+            else active_flag
+        end as active_flag
     from source
 ),
 
-unknown_members as (
-    select
-        cast('-1' as varchar) as scam_type_key,
-        'UNK' as scam_type_code,
-        'Unknown' as scam_type_name,
-        'Unknown' as scam_category,
-        'Unknown' as scam_description,
-        false as active_flag
-),
-
 final as (
-    select * from dimension_recordsgi
-
-    union all
-
-    select * from unknown_members
+    select 
+        scam_type_key,
+        scam_type_code, 
+        scam_type_name,
+        scam_category,
+        scam_description,
+        active_flag
+    from dimension_records
 )
 
 select *
