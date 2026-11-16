@@ -27,7 +27,7 @@ unknown_members as (
 ),
 
 final as (
-    select * from dimension_records
+    select * from dimension_recordsgi
 
     union all
 
