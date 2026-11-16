@@ -109,3 +109,36 @@ models:
 
       - name: rule_last_updated
         description: Timestamp of the latest known rule update.
+
+  - name: dim_products
+    description: >
+      Gold product dimension containing one row per current standardised
+      product_code, plus an Unknown member for missing or unmatched product references.
+
+    columns:
+      - name: product_key
+        description: Warehouse surrogate key for the product.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: product_code
+        description: Natural business key identifying the product.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: product_name
+        description: Name of banking product.
+
+      - name: product_category
+        description: High-level product category.
+
+      - name: is_active
+        description: Indicates whether the product is currently active.
+
+      - name: effective_start_date
+        description: Date the product became effective.
+
+      - name: effective_end_date
+        description: Date the product ceased being effective.
