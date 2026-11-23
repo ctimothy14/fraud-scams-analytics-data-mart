@@ -201,3 +201,57 @@ models:
       - name: record_updated_at
         description: >
           Timestamp of the latest known update to the customer record.
+
+  - name: dim_accounts
+    description: >
+      Gold account dimension containing one row per current standardised
+      account_id, plus an Unknown member for missing or unmatched account references.
+      Provides account context for analysing fraud/scam cases, financial exposure,
+      account type, account status and account ownership characteristics.
+
+    columns:
+      - name: account_key
+        description: >
+          Warehouse surrogate key identifying each account dimension member.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: account_id
+        description: >
+          Natural business key identifying the account.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        description: >
+          Standardised customer identifier associated with the account.
+
+      - name: product_code
+        description: >
+          Standardised banking product code associated with the account.
+
+      - name: account_type
+        description: >
+          Business classification of the account.
+
+      - name: account_status
+        description: >
+          Current status of the account.
+
+      - name: account_open_date
+        description: >
+          Date the account was opened.
+
+      - name: account_close_date
+        description: >
+          Date the account was closed, where applicable.
+
+      - name: is_joint_account
+        description: >
+          Indicates whether the account is jointly owned.
+
+      - name: record_updated_at
+        description: >
+          Timestamp of the latest known update to the account record.
